@@ -1,5 +1,5 @@
 from sqlalchemy import Column, String, Integer, Float, DateTime, Text
-from sqlalchemy.dialects.postgresql import JSONB, UUID
+from sqlalchemy import JSON
 from sqlalchemy.orm import declarative_base
 import uuid
 
@@ -22,7 +22,7 @@ class Trace(Base):
     output_tokens = Column(Integer)
     cost_usd = Column(Float)
     
-    metadata_ = Column("metadata", JSONB, default=dict)
+    metadata_ = Column("metadata", JSON, default=dict)
     
 class Evaluation(Base):
     __tablename__ = "evaluations"
