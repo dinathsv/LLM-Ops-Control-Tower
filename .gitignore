@@ -71,3 +71,4 @@ venv.bak/
 backend/.env
 data/
 *.log
+*.db
