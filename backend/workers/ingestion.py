@@ -3,8 +3,8 @@ import logging
 from confluent_kafka import Consumer, KafkaError
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
-from backend.core.schema import LLMCallEvent
-from backend.core.db_models import Base, Trace
+from core.schema import LLMCallEvent
+from core.db_models import Base, Trace
 import chromadb
 from datetime import datetime
 import dateutil.parser
@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 # Config
 KAFKA_BROKER = "localhost:9092"
 KAFKA_TOPIC = "llm_traces"
-PG_URI = "postgresql+psycopg2://llmops:llmops_pass@localhost:5432/control_tower"
+PG_URI = "sqlite:///./control_tower.db"
 
 # Initialize Postgres
 engine = create_engine(PG_URI)
@@ -24,7 +24,7 @@ Session = sessionmaker(bind=engine)
 
 # Initialize ChromaDB
 # For this worker, we connect to the ChromaDB running in docker
-chroma_client = chromadb.HttpClient(host='localhost', port=8000)
+chroma_client = chromadb.HttpClient(host='localhost', port=8001)
 # Create or get collection
 collection = chroma_client.get_or_create_collection(name="llm_responses")
 
