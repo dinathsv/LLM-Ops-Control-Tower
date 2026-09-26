@@ -4,7 +4,7 @@ import logging
 from typing import Any, Dict, Optional
 import google.generativeai as genai
 from confluent_kafka import Producer
-from backend.core.schema import LLMCallEvent
+from core.schema import LLMCallEvent
 from datetime import datetime
 
 logger = logging.getLogger(__name__)

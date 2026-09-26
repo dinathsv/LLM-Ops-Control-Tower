@@ -3,7 +3,7 @@ import uvicorn
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
 import google.generativeai as genai
-from backend.sdk.middleware import ControlTowerMiddleware
+from sdk.middleware import ControlTowerMiddleware
 
 app = FastAPI(title="Target LLM Application")
 
