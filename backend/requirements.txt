@@ -1,0 +1,8 @@
+fastapi
+uvicorn
+pydantic
+confluent-kafka
+google-generativeai
+sqlalchemy
+psycopg2-binary
+chromadb
