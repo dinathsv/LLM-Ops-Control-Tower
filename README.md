@@ -2,7 +2,7 @@
 
 A comprehensive backend platform for managing, monitoring, and tracing Large Language Model (LLM) operations. The system features a robust architecture utilizing FastAPI, PostgreSQL, ChromaDB, and Kafka for scalable asynchronous ingestion and processing of LLM traces.
 
-## 🏗️ Architecture overview
+## Architecture overview
 
 The control tower consists of several core components designed for high-performance telemetry and insights:
 
@@ -12,7 +12,7 @@ The control tower consists of several core components designed for high-performa
 4. **Message Broker / Streaming**: Uses **Confluent Kafka** to asynchronously buffer and distribute incoming payload traces to workers without blocking the main application.
 5. **Ingestion Workers (`backend/workers`)**: Consumes traces from Kafka, processes and saves trace metadata to PostgreSQL, and indexes vector embeddings into **ChromaDB**.
 
-## 🚀 Technology Stack
+## Technology Stack
 
 - **Framework**: FastAPI (Python)
 - **Message Broker**: Confluent Kafka
@@ -20,7 +20,7 @@ The control tower consists of several core components designed for high-performa
 - **Vector Database**: ChromaDB
 - **Infrastructure**: Docker & Docker Compose
 
-## 📂 Repository Structure
+## Repository Structure
 
 ```
 .
@@ -34,7 +34,7 @@ The control tower consists of several core components designed for high-performa
 └── README.md           # This file
 ```
 
-## 🛠️ Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -75,6 +75,3 @@ uvicorn api.mock_app:app --reload
 cd backend
 python -m workers.ingestion
 ```
-
-## 🔒 Security Note
-Ensure that any `.env` files and API keys are not committed to version control. They are explicitly ignored in `.gitignore`.
